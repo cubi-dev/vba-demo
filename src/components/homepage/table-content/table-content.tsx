@@ -7,14 +7,14 @@ import { columns } from "./table/table-announcements/components/columns";
 import { announcementSchema } from "./table/table-announcements/data/schema";
 import { z } from "zod";
 import { TableAnnouncements } from "./table/table-announcements/components/table-announcements";
-import demoData from "./table/table-announcements/data/tasks.js";
+import demoData from "./table/table-announcements/data/announcements.js";
 export const metadata: Metadata = {
   title: "Home Page",
   description: "Trang chủ VBA",
 };
 
 export default function TableContent() {
-  const task = z.array(announcementSchema).parse(demoData);
+  const announcement = z.array(announcementSchema).parse(demoData);
 
   return (
     <div>
@@ -33,7 +33,7 @@ export default function TableContent() {
           <TabsTrigger value="resultList">Kết quả đấu giá</TabsTrigger>
         </TabsList>
         <TabsContent value="announcementsList">
-          <TableAnnouncements data={task} columns={columns} />
+          <TableAnnouncements data={announcement} columns={columns} />
         </TabsContent>
         <TabsContent value="officialList">Danh sách chính thức</TabsContent>
         <TabsContent value="resultList">Kết quả đấu giá</TabsContent>
